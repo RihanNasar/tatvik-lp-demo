@@ -32,7 +32,8 @@ const CurriculumNodes = () => {
   }, [count]);
 
   useFrame((state) => {
-    if (!mesh.current) return;
+    const m = mesh.current;
+    if (!m) return;
     const { pointer } = state;
     // Map pointer to 3D space roughly
     const mouseX = (pointer.x * state.viewport.width) / 2;
@@ -62,11 +63,11 @@ const CurriculumNodes = () => {
       const scale = 0.5 + Math.sin(state.clock.elapsedTime * 2 + i) * 0.3;
       dummy.scale.setScalar(scale);
       dummy.updateMatrix();
-      mesh.current.setMatrixAt(i, dummy.matrix);
+      m.setMatrixAt(i, dummy.matrix);
     });
-    mesh.current.instanceMatrix.needsUpdate = true;
-    mesh.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.2) * 0.3;
-    mesh.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.1) * 0.1;
+    m.instanceMatrix.needsUpdate = true;
+    m.rotation.y = Math.sin(state.clock.elapsedTime * 0.2) * 0.3;
+    m.rotation.x = Math.sin(state.clock.elapsedTime * 0.1) * 0.1;
   });
 
   return (
@@ -118,8 +119,8 @@ const FluidGeometry = () => {
         rotation={[0, 0.3, 0]}
         polar={[-Math.PI / 3, Math.PI / 3]}
         azimuth={[-Math.PI / 2, Math.PI / 2]}
-        config={{ mass: 2, tension: 500 }}
-        snap={{ mass: 4, tension: 1500 }}
+
+        snap={true}
       >
         <mesh>
           <icosahedronGeometry args={[2.5, 0]} />
@@ -241,7 +242,7 @@ const BoidsSwarm = () => {
   return (
     <points ref={ref}>
       <bufferGeometry>
-        <bufferAttribute attach="attributes-position" count={count} array={positions} itemSize={3} />
+        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
       </bufferGeometry>
       <pointsMaterial size={0.04} color="#9B30FF" transparent opacity={0.6} blending={THREE.AdditiveBlending} />
     </points>

@@ -37,7 +37,7 @@ export default function FinalCTA() {
         "-=0.5"
       )
       // 3. The Typography rises out of the abyss
-      .fromTo(textWrapperRef.current.children,
+      .fromTo(textWrapperRef.current!.children,
         { y: 100, opacity: 0, rotationX: -15 },
         { y: 0, opacity: 1, rotationX: 0, duration: 1.2, stagger: 0.15, ease: "power3.out" },
         "-=1.5"
