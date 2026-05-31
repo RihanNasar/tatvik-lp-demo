@@ -1,26 +1,42 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --font-serif: var(--font-cormorant), ui-serif, Georgia, serif;
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  
+  --color-base-navy: #0A1045;
+  --color-base-void: #050820;
+  --color-base-trust: #F8F8FF;
+  --color-base-game: #10B981;
+  
+  --color-brand-cyan: #00BFFF;
+  --color-brand-violet: #9B30FF;
+  --color-brand-pink: #E040FB;
+  --color-brand-amber: #F59E0B;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-base-navy);
+  color: white;
+}
+
+.cosmic-gradient {
+  background: linear-gradient(to right, var(--color-brand-cyan), var(--color-brand-violet), var(--color-brand-pink), var(--color-brand-amber));
+}
+.cosmic-gradient-text {
+  background: linear-gradient(to right, var(--color-brand-cyan), var(--color-brand-violet), var(--color-brand-pink), var(--color-brand-amber));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.glass-panel {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes marqueeVertical {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
 }
