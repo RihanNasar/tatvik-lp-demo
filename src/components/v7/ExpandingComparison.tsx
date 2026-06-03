@@ -25,50 +25,50 @@ export default function ExpandingComparison() {
         scrollTrigger: {
           trigger: container.current,
           start: 'top top',
-          end: '+=400%', // Massive scroll distance to allow the user to control this epic sequence
+          end: '+=100%', // Even shorter scroll distance for immediate action
           pin: true,
-          scrub: 1,
+          scrub: 0.2, // Drastically reduced smoothing for a much crispier feel
         }
       });
 
       // 1. Initial Pause
-      tl.to({}, { duration: 0.5 });
+      tl.to({}, { duration: 0.2 });
 
       // 2. The Singularity Suck (Violently crush and spin the old card into a black hole)
       tl.to(oldCard.current, {
         scale: 0,
-        rotationZ: -1080, // 3 full extreme spins
-        rotationX: 180,
-        rotationY: 180,
-        filter: 'blur(30px) sepia(100%) hue-rotate(-90deg) brightness(200%)', // Colors distort as it gets sucked in
+        rotationZ: -720, // Reduced spins for a faster feel
+        rotationX: 90,
+        rotationY: 90,
+        filter: 'blur(20px) sepia(100%) hue-rotate(-90deg) brightness(200%)',
         opacity: 0,
-        duration: 2,
-        ease: 'power4.in' // Extremely slow start, incredibly violent finish
+        duration: 1.5,
+        ease: 'power4.inOut' // Faster build and release
       });
 
       // 3. The Shockwave Pulse (Explodes out from the singularity)
       tl.to(shockwave.current, {
-        scale: 50,
+        scale: 60,
         opacity: 1,
-        duration: 0.5,
-        ease: 'power2.in'
-      }, "-=0.2"); // Starts just before the suck finishes
+        duration: 0.4,
+        ease: 'expo.in'
+      }, "-=0.3"); // Starts right at the collapse
 
       tl.to(shockwave.current, {
         opacity: 0,
-        duration: 1,
+        duration: 0.8,
         ease: 'power2.out'
       });
 
-      // 4. The Tattvik Eruption (Shoots out of the explosion and bounces into place)
+      // 4. The Tattvik Eruption (Shoots out of the explosion and snaps into place)
       tl.fromTo(tattvikCard.current,
         {
-          scale: 0,
-          rotationZ: 1080,
-          z: -3000,
+          scale: 0.2,
+          rotationZ: 180,
+          z: -1000,
           opacity: 0,
           autoAlpha: 1,
-          filter: 'blur(50px) brightness(400%)'
+          filter: 'blur(30px) brightness(300%)'
         },
         {
           scale: 1,
@@ -76,14 +76,14 @@ export default function ExpandingComparison() {
           z: 0,
           opacity: 1,
           filter: 'blur(0px) brightness(100%)',
-          duration: 3,
-          ease: 'elastic.out(1.2, 0.4)' // Violent physical bounce
+          duration: 1.5,
+          ease: 'back.out(1.2)' // Crisp snap with slight overshoot, no long wobble
         },
-        "-=1.2" // Shoots out exactly as the shockwave reaches its peak
+        "-=0.9" // Snap out during the shockwave
       );
 
       // 5. Final Hold
-      tl.to({}, { duration: 1 });
+      tl.to({}, { duration: 0.5 });
 
     }, container);
 
@@ -101,19 +101,30 @@ export default function ExpandingComparison() {
 
       {/* THE OLD WAY CARD (z-20) - Dark Mode Flush Design */}
       <div ref={oldCard} className="absolute inset-0 z-20 flex items-center justify-center w-full h-full px-6">
-        <div className="w-full max-w-4xl h-auto max-h-[90vh] md:h-[400px] overflow-y-auto overflow-x-hidden md:overflow-hidden flex flex-col md:flex-row rounded-3xl shadow-2xl border border-white/10 bg-[#0A0C12]/90 backdrop-blur-3xl">
-          <div className="w-full md:w-1/2 h-[150px] sm:h-[200px] md:h-full relative border-b md:border-b-0 md:border-r border-white/10 shrink-0">
-            <Image src="/chibi-stressed.png" fill className="object-cover opacity-80" alt="Traditional" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0C12] to-transparent md:hidden" />
+        <div className="w-full max-w-4xl h-auto md:h-[400px] grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-3 p-3 rounded-2xl shadow-2xl border border-white/5 bg-[#05060A]/90 backdrop-blur-3xl grayscale opacity-80 transition-all hover:grayscale-0 hover:opacity-100">
+          
+          {/* Hero Bento Box */}
+          <div className="md:col-span-2 md:row-span-2 relative rounded-xl overflow-hidden border border-white/5 bg-white/[0.02]">
+            <Image src="/teen-chibi-traditional.png" fill className="object-cover opacity-60 mix-blend-luminosity" alt="Traditional System" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#05060A] via-[#05060A]/40 to-transparent pointer-events-none" />
+            <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 z-10">
+              <h3 className="text-[9px] uppercase tracking-[0.2em] text-white/40 mb-1.5 font-medium">The Old Paradigm</h3>
+              <h2 className="text-2xl md:text-4xl text-white font-serif tracking-tight leading-tight drop-shadow-md">Traditional System</h2>
+            </div>
           </div>
-          <div className="w-full md:w-1/2 p-6 md:p-12 flex flex-col justify-center">
-             <h3 className="text-[10px] uppercase tracking-[0.3em] text-white/40 mb-3 font-medium">The Old Paradigm</h3>
-             <h2 className="text-3xl md:text-4xl text-white font-serif mb-6 tracking-tight">Traditional</h2>
-             <ul className="space-y-4 text-white/50 text-sm font-light leading-relaxed">
-                <li>Rigid pacing that inevitably leaves students behind.</li>
-                <li>Rote memorization over deep conceptual clarity.</li>
-                <li>Inherent fear of judgment for asking questions.</li>
-             </ul>
+
+          {/* Top Right Bento */}
+          <div className="relative rounded-xl border border-white/5 bg-white/[0.02] p-4 md:p-5 flex flex-col justify-center">
+            <div className="w-6 h-6 rounded bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mb-3 text-white/30 text-[10px]">01</div>
+            <h4 className="text-white/60 text-xs md:text-sm font-medium mb-1.5">Standardized Pacing</h4>
+            <p className="text-white/30 text-[10px] md:text-xs font-light leading-relaxed">Designed for the average student. You must adapt to the class.</p>
+          </div>
+
+          {/* Bottom Right Bento */}
+          <div className="relative rounded-xl border border-white/5 bg-white/[0.02] p-4 md:p-5 flex flex-col justify-center">
+            <div className="w-6 h-6 rounded bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mb-3 text-white/30 text-[10px]">02</div>
+            <h4 className="text-white/60 text-xs md:text-sm font-medium mb-1.5">Crowded Classrooms</h4>
+            <p className="text-white/30 text-[10px] md:text-xs font-light leading-relaxed">High student-to-teacher ratios limit personalized feedback.</p>
           </div>
         </div>
       </div>
@@ -121,19 +132,33 @@ export default function ExpandingComparison() {
       {/* TATTVIK AI CARD (z-30) - Dark Mode Flush Design */}
       {/* Rendered ON the new dark background wall after it finishes pushing */}
       <div ref={tattvikCard} className="absolute inset-0 z-30 flex items-center justify-center w-full h-full px-6 pointer-events-none">
-        <div className="w-full max-w-4xl h-auto max-h-[90vh] md:h-[400px] overflow-y-auto overflow-x-hidden md:overflow-hidden flex flex-col md:flex-row-reverse rounded-3xl shadow-[0_30px_100px_rgba(0,191,255,0.15)] border border-brand-cyan/20 bg-[#0A0C12]/90 backdrop-blur-3xl">
-          <div className="w-full md:w-1/2 h-[150px] sm:h-[200px] md:h-full relative border-b md:border-b-0 md:border-l border-brand-cyan/20 shrink-0">
-            <Image src="/chibi-chatbot.png" fill className="object-cover opacity-90" alt="Tattvik AI" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0C12] to-transparent md:hidden" />
+        <div className="w-full max-w-4xl h-auto md:h-[400px] grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-3 p-3 rounded-2xl shadow-[0_30px_100px_rgba(0,191,255,0.15)] border border-brand-cyan/20 bg-[#0A0C12]/90 backdrop-blur-3xl pointer-events-auto">
+          
+          {/* Hero Bento Box */}
+          <div className="md:col-span-2 md:row-span-2 relative rounded-xl overflow-hidden border border-brand-cyan/20 bg-brand-cyan/[0.02] group">
+            <div className="absolute top-0 right-0 w-[200%] h-[200%] bg-[radial-gradient(ellipse_at_center,rgba(0,191,255,0.15),transparent_50%)] blur-2xl pointer-events-none group-hover:scale-110 transition-transform duration-700" />
+            <Image src="/teen-chibi-tattvik.png" fill className="object-cover opacity-90" alt="Tattvik AI" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0C12] via-transparent to-[#0A0C12]/50 pointer-events-none" />
+            <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 z-10">
+              <h3 className="text-[9px] uppercase tracking-[0.2em] text-brand-cyan mb-1.5 font-bold drop-shadow-[0_0_10px_rgba(0,191,255,0.8)]">The Future</h3>
+              <h2 className="text-2xl md:text-4xl text-white font-serif tracking-tight leading-tight drop-shadow-[0_0_15px_rgba(0,191,255,0.4)]">Tattvik AI</h2>
+            </div>
           </div>
-          <div className="w-full md:w-1/2 p-6 md:p-12 flex flex-col justify-center pointer-events-auto">
-             <h3 className="text-[10px] uppercase tracking-[0.3em] text-brand-cyan mb-3 font-bold drop-shadow-[0_0_10px_rgba(0,191,255,0.3)]">The Future</h3>
-             <h2 className="text-3xl md:text-4xl text-white font-serif mb-6 tracking-tight drop-shadow-[0_0_15px_rgba(0,191,255,0.2)]">Tattvik AI</h2>
-             <ul className="space-y-4 text-white/80 text-sm font-light leading-relaxed">
-                <li className="flex items-start"><span className="text-brand-cyan mr-3 mt-0.5">✦</span> Mastery-based progression perfectly adapted to you.</li>
-                <li className="flex items-start"><span className="text-brand-cyan mr-3 mt-0.5">✦</span> Complex theories mapped to real-world analogies.</li>
-                <li className="flex items-start"><span className="text-brand-cyan mr-3 mt-0.5">✦</span> Zero judgment. Ask the exact same question ten times.</li>
-             </ul>
+
+          {/* Top Right Bento */}
+          <div className="relative rounded-xl border border-brand-cyan/10 bg-white/[0.01] hover:bg-white/[0.03] transition-colors p-4 md:p-5 flex flex-col justify-center overflow-hidden">
+            <div className="absolute -right-4 -top-4 w-20 h-20 bg-brand-cyan/10 rounded-full blur-xl pointer-events-none" />
+            <div className="w-6 h-6 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center shrink-0 mb-3 text-brand-cyan text-xs">✦</div>
+            <h4 className="text-white text-xs md:text-sm font-medium mb-1.5">Mastery-Based</h4>
+            <p className="text-white/50 text-[10px] md:text-xs font-light leading-relaxed">Adapts perfectly to your pace. We never move on until you completely understand.</p>
+          </div>
+
+          {/* Bottom Right Bento */}
+          <div className="relative rounded-xl border border-brand-cyan/10 bg-white/[0.01] hover:bg-white/[0.03] transition-colors p-4 md:p-5 flex flex-col justify-center overflow-hidden">
+            <div className="absolute -left-4 -bottom-4 w-20 h-20 bg-brand-pink/10 rounded-full blur-xl pointer-events-none" />
+            <div className="w-6 h-6 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center shrink-0 mb-3 text-brand-cyan text-xs">✦</div>
+            <h4 className="text-white text-xs md:text-sm font-medium mb-1.5">Zero Judgment</h4>
+            <p className="text-white/50 text-[10px] md:text-xs font-light leading-relaxed">Ask the exact same question ten times. I never get frustrated, and I never judge.</p>
           </div>
         </div>
       </div>

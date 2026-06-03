@@ -15,7 +15,7 @@ export default function CinematicHero() {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <section ref={ref} id="section-hero" className="relative w-full h-[100dvh] flex flex-col items-center justify-center overflow-hidden bg-base-void">
+    <section ref={ref} id="section-hero" className="relative w-full h-[100dvh] flex flex-col items-center justify-center overflow-hidden bg-transparent">
       {/* Motion Background */}
       <motion.div 
         style={{ y, opacity }}
@@ -74,3 +74,4 @@ export default function CinematicHero() {
     </section>
   );
 }
+

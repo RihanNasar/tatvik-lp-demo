@@ -31,7 +31,7 @@ export default function IllustratedScene() {
           start: 'top top',
           end: '+=200%', // Extended scroll area for the new plane animation
           pin: true,
-          scrub: 1,
+          scrub: 0.2,
         }
       });
 
@@ -93,7 +93,7 @@ export default function IllustratedScene() {
   }, []);
 
   return (
-    <section ref={container} className="relative w-full h-[100dvh] flex flex-col items-center justify-center bg-base-void overflow-hidden perspective-[2000px] pt-[140px]">
+    <section ref={container} className="relative w-full h-[100dvh] flex flex-col items-center justify-center bg-transparent overflow-hidden perspective-[2000px] pt-[140px]">
       
       {/* Paper Plane SVG */}
       <div ref={planeRef} className="absolute z-50 pointer-events-none drop-shadow-[0_0_15px_rgba(242,165,49,0.6)]">
@@ -110,7 +110,7 @@ export default function IllustratedScene() {
             One question. Instant clarity.
           </h2>
           <p className="text-white/40 text-xs md:text-sm font-sans leading-relaxed">
-            Tattvik reads your NCERT chapter and answers any question like a calm, brilliant friend would.
+            I am your personal tutor. I will read your syllabus with you and answer any question calmly and brilliantly.
           </p>
         </div>
 
@@ -169,7 +169,7 @@ export default function IllustratedScene() {
           <div className="absolute inset-0 pointer-events-none [transform-style:preserve-3d] z-20">
             <div className="scene-label absolute top-[10%] left-2 sm:-left-4 md:-left-12 bg-white/[0.05] backdrop-blur-md border border-white/10 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 flex items-center gap-2 shadow-xl">
               <div className="w-2 h-2 rounded-full bg-brand-saffron" />
-              <span className="text-white/80 text-[9px] sm:text-[10px] md:text-xs font-sans tracking-wide">NCERT Class 10: Bio</span>
+              <span className="text-white/80 text-[9px] sm:text-[10px] md:text-xs font-sans tracking-wide">Class 10: Bio</span>
             </div>
             
             <div className="scene-label absolute bottom-[25%] left-4 sm:left-0 md:-left-8 bg-white/[0.05] backdrop-blur-md border border-white/10 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 flex items-center gap-2 shadow-xl">
@@ -192,3 +192,4 @@ export default function IllustratedScene() {
     </section>
   );
 }
+

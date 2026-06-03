@@ -24,9 +24,9 @@ export default function FloatingNav() {
       }}
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
-      className="fixed top-6 left-1/2 -translate-x-1/2 z-[9999] w-full max-w-4xl px-4"
+      className="fixed top-6 left-1/2 -translate-x-1/2 z-[9999] w-auto px-4"
     >
-      <div className="glass-panel rounded-full px-6 py-3 flex items-center justify-between border border-white/10 shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-xl bg-base-void/40">
+      <div className="glass-panel rounded-full px-6 py-3 flex items-center gap-8 md:gap-16 border border-white/10 shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-xl bg-transparent/40">
         
         {/* Logo */}
         <div className="flex items-center gap-3">
@@ -36,12 +36,7 @@ export default function FloatingNav() {
           <span className="font-sans text-white/90 font-medium tracking-wide text-sm">Tattvik AI</span>
         </div>
 
-        {/* Links */}
-        <div className="hidden md:flex items-center gap-10 font-sans text-xs text-white/50 tracking-wider">
-          <a href="#features" className="hover:text-white transition-colors">Platform</a>
-          <a href="#curriculum" className="hover:text-white transition-colors">Curriculum</a>
-          <a href="#trust" className="hover:text-white transition-colors">Testimonials</a>
-        </div>
+
 
         {/* Elegant CTA */}
         <button className="text-white/80 font-sans font-light px-6 py-2.5 rounded-full border border-white/20 hover:border-white/50 hover:bg-white/5 transition-all text-[10px] uppercase tracking-[0.2em]">
@@ -52,3 +47,4 @@ export default function FloatingNav() {
     </motion.nav>
   );
 }
+

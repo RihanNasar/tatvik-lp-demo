@@ -8,7 +8,7 @@ export default function MinimalistComparison() {
   ];
 
   return (
-    <section className="py-40 bg-base-void px-6 relative flex flex-col items-center">
+    <section className="py-40 bg-transparent px-6 relative flex flex-col items-center">
       <div className="max-w-6xl w-full relative">
         
         <div className="grid grid-cols-2 relative">
@@ -48,3 +48,4 @@ export default function MinimalistComparison() {
     </section>
   );
 }
+

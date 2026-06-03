@@ -59,7 +59,7 @@ export default function ExpandingWindow() {
   }, []);
 
   return (
-    <section ref={container} className="h-[100dvh] w-full bg-base-void flex flex-col items-center justify-center relative px-6 overflow-hidden perspective-[2000px]">
+    <section ref={container} className="h-[100dvh] w-full bg-transparent flex flex-col items-center justify-center relative px-6 overflow-hidden perspective-[2000px]">
       
       {/* Dynamic Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vh] bg-brand-cyan/5 rounded-full blur-[150px] pointer-events-none" />
@@ -135,3 +135,4 @@ export default function ExpandingWindow() {
     </section>
   );
 }
+

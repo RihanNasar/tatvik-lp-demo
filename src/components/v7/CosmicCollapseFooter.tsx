@@ -41,7 +41,7 @@ export default function CosmicCollapseFooter() {
   }, []);
 
   return (
-    <section ref={container} className="h-[100dvh] w-full bg-base-void relative overflow-hidden flex items-center justify-center">
+    <section ref={container} className="h-[100dvh] w-full bg-transparent relative overflow-hidden flex items-center justify-center">
       
       {/* Dark Void Base Content (Revealed when white collapses) */}
       <div className="absolute inset-0 z-0 flex flex-col items-center justify-center text-center px-6">
@@ -72,3 +72,4 @@ export default function CosmicCollapseFooter() {
     </section>
   );
 }
+

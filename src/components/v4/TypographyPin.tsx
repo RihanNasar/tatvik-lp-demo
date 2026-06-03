@@ -38,7 +38,7 @@ export default function TypographyPin() {
   const words = text.split(" ");
 
   return (
-    <section ref={container} className="h-[100dvh] w-full bg-base-void flex items-center justify-center relative overflow-hidden border-t border-white/5">
+    <section ref={container} className="h-[100dvh] w-full bg-transparent flex items-center justify-center relative overflow-hidden border-t border-white/5">
       
       <div className="absolute inset-0 z-0 flex items-center justify-center opacity-20 pointer-events-none">
          <div className="w-[60vw] h-[60vw] bg-brand-violet/20 rounded-full blur-[150px]" />
@@ -60,3 +60,4 @@ export default function TypographyPin() {
     </section>
   );
 }
+

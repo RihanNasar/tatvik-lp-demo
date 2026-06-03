@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function CosmicFooter() {
   return (
-    <footer className="relative w-full h-[80vh] min-h-[600px] flex flex-col items-center justify-center overflow-hidden bg-base-void text-white">
+    <footer className="relative w-full h-[80vh] min-h-[600px] flex flex-col items-center justify-center overflow-hidden bg-transparent text-white">
       
       {/* Twilight Glassmorphism Glows */}
       <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden pointer-events-none">
@@ -56,3 +56,4 @@ export default function CosmicFooter() {
     </footer>
   );
 }
+

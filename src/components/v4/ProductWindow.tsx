@@ -13,7 +13,7 @@ export default function ProductWindow() {
   const textY = useTransform(scrollYProgress, [0, 1], [30, -30]);
 
   return (
-    <section ref={ref} className="py-40 bg-base-void px-6 flex flex-col items-center overflow-hidden">
+    <section ref={ref} className="py-40 bg-transparent px-6 flex flex-col items-center overflow-hidden">
       <motion.div 
         style={{ y: textY }}
         initial={{ opacity: 0, filter: 'blur(10px)' }}
@@ -79,3 +79,4 @@ export default function ProductWindow() {
     </section>
   );
 }
+

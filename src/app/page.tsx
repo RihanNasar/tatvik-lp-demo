@@ -9,10 +9,11 @@ import Features from '@/components/v11/Features';
 import BlobWipe from '@/components/v11/BlobWipe';
 import Testimonials from '@/components/v11/Testimonials';
 import FinalCTA from '@/components/v11/FinalCTA';
+import SchoolCTA from '@/components/v11/SchoolCTA';
 
 export default function Home() {
   return (
-    <main className="block min-h-screen bg-base-void text-white selection:bg-brand-cyan/30 selection:text-white">
+    <main className="block min-h-screen bg-transparent text-white selection:bg-brand-cyan/30 selection:text-white">
       <FloatingNav />
         <CinematicHero />
         <TypographicMask />
@@ -25,7 +26,9 @@ export default function Home() {
         <Testimonials />
         
       <ExpandingComparison />
+      <SchoolCTA />
       <FinalCTA />
     </main>
   );
 }
+

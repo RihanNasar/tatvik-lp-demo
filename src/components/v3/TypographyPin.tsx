@@ -34,7 +34,7 @@ export default function TypographyPin() {
   }, []);
 
   return (
-    <section ref={container} className="h-[100dvh] w-full bg-base-void flex items-center justify-center border-y border-white/5">
+    <section ref={container} className="h-[100dvh] w-full bg-transparent flex items-center justify-center border-y border-white/5">
       <div className="max-w-3xl mx-auto px-6 text-center flex flex-col items-center gap-6">
         <p ref={beat1} className="font-serif text-3xl md:text-5xl text-white opacity-0 leading-[1.1] tracking-tight">
           "Everyone else seemed to understand it."
@@ -49,3 +49,4 @@ export default function TypographyPin() {
     </section>
   );
 }
+

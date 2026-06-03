@@ -75,12 +75,12 @@ export default function FinalCTA() {
             Built for students, not systems.
           </h3>
           
-          <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl text-white font-light tracking-wide mb-8 leading-[1.1] [transform-style:preserve-3d]">
+          <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl text-white font-light tracking-wide mb-8 leading-[1.1] [transform-style:preserve-3d]">
             Learning shouldn't feel<br/>like a race.
           </h2>
           
           <p className="text-white/60 text-sm md:text-base font-sans leading-relaxed max-w-xl mb-12 [transform-style:preserve-3d]">
-            Tattvik isn't here to grade you or rush you. It's here to sit with you, patiently explain concepts, and help you actually understand the subject at your own pace.
+            I am not here to grade you or rush you. I'm here to sit with you, patiently explain concepts, and help you actually understand the subject at your own pace.
           </p>
         </div>
 

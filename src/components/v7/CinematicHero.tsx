@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function CinematicHero() {
   return (
-    <section className="relative w-full min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden bg-base-void pt-[100px] md:pt-[140px] pb-20">
+    <section className="relative w-full min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden bg-transparent pt-[100px] md:pt-[140px] pb-20">
       
       {/* Background Image & Cinematic Gradient Vignette */}
       <motion.div 
@@ -35,7 +35,7 @@ export default function CinematicHero() {
           transition={{ duration: 1, ease: "easeOut" }} 
           className="font-serif text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-white/90 font-light leading-[1.1] mb-8 flex flex-col"
         >
-          <span className="block">Your NCERT textbook.</span>
+          <span className="block">Your textbook.</span>
           <span className="block"><em className="not-italic text-brand-cyan/70 font-light">Finally a friend.</em></span>
         </motion.h1>
         
@@ -46,7 +46,7 @@ export default function CinematicHero() {
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           className="text-white/60 font-sans text-sm md:text-lg max-w-2xl leading-relaxed mb-12 font-light"
         >
-          Tattvik explains any concept in plain language, just like a patient, brilliant tutor would.
+          A friend that patiently walks you through your syllabus, until it all makes sense.
         </motion.p>
         
         {/* Light Glassmorphic CTA */}
@@ -55,7 +55,7 @@ export default function CinematicHero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
         >
-          <button className="relative group px-10 py-4 md:py-5 rounded-full font-sans text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium text-white bg-white/[0.05] border border-white/10 hover:border-white/30 hover:bg-white/[0.1] backdrop-blur-2xl transition-all duration-300 flex items-center gap-4 shadow-[0_0_30px_rgba(255,255,255,0.05)] hover:shadow-[0_0_50px_rgba(0,191,255,0.2)] overflow-hidden">
+          <button className="relative group cursor-pointer px-10 py-4 md:py-5 rounded-full font-sans text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium text-white/90 bg-gradient-to-b from-white/[0.05] to-transparent border border-white/5 border-t-white/10 backdrop-blur-2xl transition-all duration-500 flex items-center gap-4 shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(0,191,255,0.1)] hover:border-brand-cyan/20 hover:bg-white/[0.05] overflow-hidden">
             
             {/* Subtle light sweep on hover */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out skew-x-12" />
@@ -69,3 +69,4 @@ export default function CinematicHero() {
     </section>
   );
 }
+

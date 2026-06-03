@@ -21,7 +21,7 @@ export default function Testimonials() {
           start: 'top top',
           end: '+=150%',
           pin: true,
-          scrub: 1,
+          scrub: 0.2,
         }
       });
 
@@ -84,7 +84,7 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section ref={container} className="w-full h-[150dvh] md:h-[100dvh] pt-[100px] md:pt-[140px] pb-10 bg-base-void flex flex-col items-center justify-start overflow-hidden relative z-20 perspective-[2000px]">
+    <section ref={container} className="w-full h-[150dvh] md:h-[100dvh] pt-[100px] md:pt-[140px] pb-10 bg-transparent flex flex-col items-center justify-start overflow-hidden relative z-20 perspective-[2000px]">
       
       {/* Header - Scaled down and safely padded */}
       <div className="text-center z-10 px-6 w-full mb-8 relative">
@@ -207,3 +207,4 @@ export default function Testimonials() {
     </section>
   );
 }
+

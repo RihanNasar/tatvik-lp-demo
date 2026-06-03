@@ -29,9 +29,9 @@ export default function BlobWipe() {
         scrollTrigger: {
           trigger: container.current,
           start: 'top top',
-          end: '+=400%',
+          end: '+=300%',
           pin: true,
-          scrub: 1,
+          scrub: 0.2,
         }
       });
 
@@ -126,10 +126,10 @@ export default function BlobWipe() {
   const flapPaper = `${basePaper} overflow-hidden p-6`;
 
   return (
-    <section ref={container} className="relative w-full h-[100dvh] bg-base-void flex items-center justify-center overflow-hidden z-30 perspective-[2000px]">
+    <section ref={container} className="relative w-full h-[100dvh] bg-transparent flex items-center justify-center overflow-hidden z-30 perspective-[2000px]">
       
       {/* Deep Space Background */}
-      <div className="absolute inset-0 bg-base-void z-0" />
+      <div className="absolute inset-0 bg-transparent z-0" />
 
       {/* The Singularity Shockwave (Birth of the UI) */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 mix-blend-screen">
@@ -150,11 +150,11 @@ export default function BlobWipe() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mb-16">
             <div className="glass-panel p-8 rounded-2xl border border-brand-cyan/20 bg-brand-cyan/[0.03] backdrop-blur-md hover:bg-brand-cyan/[0.08] transition-colors shadow-[0_0_30px_rgba(0,191,255,0.05)]">
               <h3 className="text-brand-cyan font-sans text-xs font-medium tracking-[0.2em] mb-4 uppercase">Zero Judgment</h3>
-              <p className="text-white/50 font-sans text-sm leading-relaxed">Ask the exact same question ten times. Tattvik never gets frustrated, never judges, and always adapts to your pace.</p>
+              <p className="text-white/50 font-sans text-sm leading-relaxed">Ask me the exact same question ten times. I never get frustrated, I never judge, and I always adapt to your pace.</p>
             </div>
             <div className="glass-panel p-8 rounded-2xl border border-brand-violet/20 bg-brand-violet/[0.03] backdrop-blur-md hover:bg-brand-violet/[0.08] transition-colors shadow-[0_0_30px_rgba(157,80,187,0.05)]">
               <h3 className="text-brand-violet font-sans text-xs font-medium tracking-[0.2em] mb-4 uppercase">Instant Clarity</h3>
-              <p className="text-white/50 font-sans text-sm leading-relaxed">Complex NCERT theories are instantly broken down into simple, real-world analogies that you intuitively understand.</p>
+              <p className="text-white/50 font-sans text-sm leading-relaxed">Complex theories are instantly broken down into simple, real-world analogies that you intuitively understand.</p>
             </div>
             <div className="glass-panel p-8 rounded-2xl border border-brand-pink/20 bg-brand-pink/[0.03] backdrop-blur-md hover:bg-brand-pink/[0.08] transition-colors shadow-[0_0_30px_rgba(255,105,180,0.05)]">
               <h3 className="text-brand-pink font-sans text-xs font-medium tracking-[0.2em] mb-4 uppercase">Always Awake</h3>
@@ -252,7 +252,7 @@ export default function BlobWipe() {
             
             {/* Top-Right Corner */}
             <div ref={topRight} className={`${flapPaper} w-full h-full absolute top-[-100%] left-0 origin-bottom items-start justify-end border-b-0 border-l-0`}>
-              <div className="text-[10px] font-mono tracking-widest uppercase mt-6 mr-6 text-black/40 font-bold">NCERT Physics</div>
+              <div className="text-[10px] font-mono tracking-widest uppercase mt-6 mr-6 text-black/40 font-bold">Physics</div>
             </div>
             
             {/* Bottom-Right Corner */}
@@ -267,3 +267,4 @@ export default function BlobWipe() {
     </section>
   );
 }
+

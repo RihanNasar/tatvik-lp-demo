@@ -20,9 +20,9 @@ export default function TypographicMask() {
         scrollTrigger: {
           trigger: container.current,
           start: 'top top',
-          end: '+=300%', // Much longer scroll area for the 3-part story
+          end: '+=150%', // Reduced scroll distance for faster pacing
           pin: true,
-          scrub: 1,
+          scrub: 0.2,
         }
       });
 
@@ -56,19 +56,19 @@ export default function TypographicMask() {
   }, []);
 
   return (
-    <section ref={container} className="h-[100dvh] w-full bg-base-void flex flex-col items-center justify-center relative overflow-hidden px-6 border-t border-white/5 pt-[60px]">
+    <section ref={container} className="h-[100dvh] w-full bg-transparent flex flex-col items-center justify-center relative overflow-hidden px-6 border-t border-white/5 pt-[60px]">
       <div className="relative z-10 w-full h-full flex flex-col items-center justify-center -mt-20">
         
         {/* Quote 1 */}
         <div ref={quote1Ref} className="absolute inset-0 flex items-center justify-center pointer-events-none px-4">
-          <p className="font-serif text-2xl sm:text-3xl md:text-5xl text-white/80 font-light tracking-wide text-center">
+          <p className="font-serif text-3xl sm:text-4xl md:text-6xl text-white/90 font-light tracking-tight text-center">
             Everyone else understood.
           </p>
         </div>
 
         {/* Quote 2 */}
         <div ref={quote2Ref} className="absolute inset-0 flex items-center justify-center pointer-events-none px-4">
-          <p className="font-serif text-2xl sm:text-3xl md:text-5xl text-white/80 font-light tracking-wide text-center">
+          <p className="font-serif text-3xl sm:text-4xl md:text-6xl text-white/90 font-light tracking-tight text-center">
             I just pretended I did.
           </p>
         </div>
@@ -102,3 +102,4 @@ export default function TypographicMask() {
     </section>
   );
 }
+

@@ -25,7 +25,7 @@ export default function TrustMarquee() {
           start: 'top top',
           end: '+=150%',
           pin: true,
-          scrub: 1,
+          scrub: 0.2,
         }
       });
 
@@ -69,10 +69,10 @@ export default function TrustMarquee() {
     return () => ctx.revert();
   }, []);
 
-  const quote = `"I used to spend hours re-reading the same NCERT chapter. Now I just ask Tattvik and get it in two minutes."`;
+  const quote = `"I finally understand concepts I thought I'd never get. Learning actually feels effortless now."`;
 
   return (
-    <section ref={container} className="relative w-full h-[100dvh] overflow-hidden bg-base-void flex flex-col items-center justify-center pt-[100px] md:pt-[140px] perspective-[2000px]">
+    <section ref={container} className="relative w-full h-[100dvh] overflow-hidden bg-transparent flex flex-col items-center justify-center pt-[100px] md:pt-[140px] perspective-[2000px]">
       
       {/* Dark Void Background Glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-[800px] max-h-[800px] bg-brand-cyan/5 rounded-full blur-[150px] pointer-events-none" />
@@ -96,15 +96,15 @@ export default function TrustMarquee() {
          
          <div className="w-full max-w-[100vw] overflow-hidden flex whitespace-nowrap" style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}>
            <div ref={marqueeRef} className="animate-[scroll_30s_linear_infinite] flex gap-20 items-center font-serif text-3xl md:text-5xl text-white/5 font-bold tracking-tighter">
-              <span>NCERT Aligned</span>
-              <span>Class 9 to 12</span>
-              <span>Zero Cost</span>
-              <span>CBSE Ready</span>
-              <span>Made in India</span>
-              <span>Hindi + English</span>
-              <span>Personalized AI</span>
-              <span>Exam Focused</span>
-              {/* Duplicate for infinite loop */}
+              <div className="flex gap-4 items-center">
+              <span>Syllabus Aligned</span>
+              <span className="text-white/20">•</span>
+              <span>Exam Ready</span>
+              <span className="text-white/20">•</span>
+              <span>24/7 Available</span>
+              <span className="text-white/20">•</span>
+              <span>Syllabus Aligned</span>
+            </div>  {/* Duplicate for infinite loop */}
               <span>NCERT Aligned</span>
               <span>Class 9 to 12</span>
               <span>Zero Cost</span>
@@ -115,3 +115,4 @@ export default function TrustMarquee() {
     </section>
   );
 }
+
