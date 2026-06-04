@@ -28,7 +28,7 @@ export default function SchoolCTA() {
         { y: 0, opacity: 1, scale: 1, rotationX: 0, duration: 1.5, ease: "expo.out", force3D: true }
       )
       // 2. Stagger text elements
-      .fromTo(textWrapperRef.current.children,
+      .fromTo(textWrapperRef.current!.children,
         { y: 20, opacity: 0, filter: 'blur(10px)' },
         { y: 0, opacity: 1, filter: 'blur(0px)', duration: 1.2, stagger: 0.1, ease: "power3.out", force3D: true },
         "-=1.1"

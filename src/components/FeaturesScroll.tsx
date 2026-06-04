@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './FeaturesScroll.module.css';
@@ -8,19 +9,19 @@ gsap.registerPlugin(ScrollTrigger);
 
 const features = [
   {
-    title: 'Interactive Curriculum',
+    title: 'Interactive Curriculum.',
     description: 'Textbook concepts brought to life with engaging animations and interactive exercises.',
-    color: 'linear-gradient(135deg, rgba(15, 240, 255, 0.2), rgba(10, 11, 16, 1))'
+    image: '/media__1780481802767.png'
   },
   {
-    title: 'Learn by Playing',
+    title: 'Learn by Playing.',
     description: 'We simplified learning to make it feel like a game. Stay motivated, earn rewards, and have fun.',
-    color: 'linear-gradient(135deg, rgba(176, 87, 255, 0.2), rgba(10, 11, 16, 1))'
+    image: '/media__1780481802793.png'
   },
   {
-    title: 'Zero Pressure',
+    title: 'Zero Pressure.',
     description: 'Reduces the need for expensive tuitions. Learn at your own pace with a stress-free environment.',
-    color: 'linear-gradient(135deg, rgba(15, 240, 255, 0.2), rgba(176, 87, 255, 0.2))'
+    image: '/media__1780481802812.png'
   }
 ];
 
@@ -61,11 +62,18 @@ export default function FeaturesScroll() {
               ref={(el) => {
                 if (el) cardsRef.current[index] = el;
               }}
-              style={{ background: feature.color }}
             >
               <div className={styles.cardContent}>
                 <h3 className={styles.cardTitle}>{feature.title}</h3>
                 <p className={styles.cardDescription}>{feature.description}</p>
+              </div>
+              <div className={styles.imageContainer}>
+                <Image 
+                  src={feature.image} 
+                  alt={feature.title} 
+                  fill 
+                  className={styles.image} 
+                />
               </div>
             </div>
           ))}
