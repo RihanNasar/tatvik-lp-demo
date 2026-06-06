@@ -30,35 +30,37 @@ export default function Features() {
       tl.to(headerRef.current, { opacity: 0, y: -50, duration: 0.5 });
 
       panels.forEach((panel, i) => {
-        // Apple Keynote Style Smooth Rise & Scale
+        // 1. Enter animation
         tl.fromTo(panel,
           { 
             opacity: 0, 
-            y: "40vh", 
+            y: "60vh", 
             scale: 0.85,
-            z: -500,
             rotationX: 10
           },
           { 
             opacity: 1, 
             y: "0vh", 
             scale: 1,
-            z: i * 50, // Slight stacking offset
             rotationX: 0, 
             duration: 1.5, 
             ease: 'power3.out' 
-          }
+          },
+          i === 0 ? undefined : `<` // Sync with the previous card's push-back animation
         );
         
-        // Let the card sit for a moment before the next one comes, smooth fade out backwards
+        // 2. Pause so the user can read the card
+        tl.to(panel, { duration: 1 });
+        
+        // 3. Push back and fade out as the NEXT card comes in
         if (i < panels.length - 1) {
           tl.to(panel, {
             scale: 0.9,
-            y: `-${15 + (i * 10)}vh`,
-            opacity: 0.4,
-            duration: 0.8,
-            ease: 'power2.inOut'
-          }, "+=0.5");
+            y: `-${10}vh`,
+            opacity: 0.05, // Almost invisible to prevent any visual interruption/overlay
+            duration: 1.5,
+            ease: 'power3.inOut'
+          });
         }
       });
 

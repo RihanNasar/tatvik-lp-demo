@@ -10,6 +10,7 @@ import BlobWipe from '@/components/v11/BlobWipe';
 import Testimonials from '@/components/v11/Testimonials';
 import FinalCTA from '@/components/v11/FinalCTA';
 import SchoolCTA from '@/components/v11/SchoolCTA';
+import AppShowcaseHero from '@/components/v12/AppShowcaseHero';
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
         <TypographicMask />
         
         <IllustratedScene />
+        <AppShowcaseHero />
         <Features />
         <TrustMarquee />
         
